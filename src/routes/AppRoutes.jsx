@@ -1,13 +1,22 @@
 import { Routes, Route } from "react-router-dom";
 
-function Home() {
-  return <h1>Enterprise Admin Dashboard</h1>;
-}
+import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
