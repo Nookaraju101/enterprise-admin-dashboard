@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export default function Dashboard() {
   const { user } = useSelector((state) => state.auth);
@@ -14,25 +15,21 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="p-10">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-4xl font-bold">
-            Welcome
-          </h1>
+      <DashboardLayout>
+      <h1 className="text-3xl font-bold">
+        Dashboard
+      </h1>
 
-          <p className="text-gray-500">
-            {user?.name}
-          </p>
-        </div>
+      <p className="mt-3 text-gray-500">
+        Welcome to Enterprise Admin Dashboard
+      </p>
+    </DashboardLayout>
 
-        <button
+        /*<button
           onClick={handleLogout}
           className="rounded bg-red-600 px-5 py-2 text-white"
         >
           Logout
-        </button>
-      </div>
-    </div>
+        </button>*/
   );
 }
